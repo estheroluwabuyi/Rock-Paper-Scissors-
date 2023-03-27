@@ -1,0 +1,156 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 60%;
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body{
+ color: rgb(254,254,254);
+ font-family: Sans-Serif;
+}
+section{
+ height: 100vh;
+ padding: 2rem;
+ background: #475569 ;
+}
+.game-score{
+ display: flex;
+ justify-content: space-around;
+ line-height: 2;
+ text-align: center;
+ height: 20vh;
+ font-size: 17px;
+}
+.game-score h1{
+ font-size: 20px;
+}
+.game-intro{
+ height: 50vh;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-around;
+ align-items: center;
+ transition: opacity .3s ease;
+}
+ .game-intro h1{
+  white-space: nowrap;
+ font-size: 30px;
+}
+button{
+ border: none;
+ background: rgb(58,208,160);
+ font-size: 18px;
+ border-radius: 3px;
+ padding: 6px 9px;
+ color: inherit;
+ transition: opacity .3s ease;
+}
+button:hover, button:focus{
+ background:rgba(58,208,160,0.7);
+}
+.main-game{
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ text-align: center;
+ transition: opacity .3s ease;
+}
+.main-game h1{
+ font-size: 27px;
+}
+.main-game-images, .main-game-buttons{
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
+}
+.main-game-images img{
+ width: 150px;
+ height: auto;
+}
+.player-hand{
+ transform: rotateY(180deg);
+}
+.opacity-hide{
+ display: none;
+/*opacity: 0;
+pointer-events: none;*/
+}
+.opacity-show{
+ display: block;
+ /*opacity: 1;
+ pointer-events: none;*/
+}
+
+
+
+@keyframes shakePlayer{
+ 0%{
+  transform: rotateY(180deg) translateY(0px);
+ }
+ 15%{
+  transform: rotateY(180deg) translateY(-50px);
+ }
+ 25%{
+  transform: rotateY(180deg) translateY(0px);
+ }
+ 35%{
+  transform: rotateY(180deg) translateY(-50px);
+ }
+ 50%{
+  transform: rotateY(180deg) translateY(0px);
+ }
+ 65%{
+  transform: rotateY(180deg) translateY(-50px);
+ }
+ 75%{
+  transform: rotateY(180deg) translateY(0px);
+ }
+ 85%{
+  transform: rotateY(180deg) translateY(-50px);
+ }
+ 100%{
+  transform: rotateY(180deg) translateY(0px);
+ }
+}
+
+@keyframes shakeComputer{
+ 0%{
+  transform:  translateY(0px);
+ }
+ 15%{
+  transform: translateY(-50px);
+ }
+ 25%{
+  transform:  translateY(0px);
+ }
+ 35%{
+  transform: translateY(-50px);
+ }
+ 50%{
+  transform: translateY(0px);
+ }
+ 65%{
+  transform: translateY(-50px);
+ }
+ 75%{
+  transform: translateY(0px);
+ }
+ 85%{
+  transform: translateY(-50px);
+ }
+ 100%{
+  transform: translateY(0px);
+ }
+}
+
+/*//if i had used display: none, it would have stopped the animation. But opacity enables animation. The reason I had to use pointer events on the opacity-show and opacity-hide classes was because they had the clas opacity set to them. Opacity does not completely remove an element from a document flow it just hides...and our buttons were over each other, they won't work because they are preventing wach other work. that's why pointer-events is important. Display none completely removes an element from a document flow, and also hinders the animation.*/
+
+/*//difference between math.trunc and math.floor is that, the former does not round down to the nearest value and the latter rounds down to the nearest value. e.g for math.trunc, if it's 0.5, the result would be 0. But for math.floor, if it's 0.5, the result would be 1.*/
